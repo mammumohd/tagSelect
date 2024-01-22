@@ -1,0 +1,112 @@
+// Define the breakpoints
+$breakpoint-mobile: 673px;
+$breakpoint-tablet: 1057px;
+$breakpoint-desktop: 1200px;
+
+@mixin Mobile {
+  @media (max-width: $breakpoint-mobile) {
+    @content;
+  }
+}
+
+@mixin Tablet {
+  @media (min-width: $breakpoint-mobile ) and (max-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin Desktop {
+  @media (min-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+
+.tag-select-parent {
+
+    position: relative;
+    outline: none;
+
+    .list-box {
+        max-width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        cursor: text;
+        border: 1px solid #b3b7bd;
+        background-color: rgb(244, 244, 244);
+        box-sizing: border-box;
+        border-bottom: 1px solid rgb(22, 22, 22);
+        border-left: 0;
+        border-right: 0;
+        border-top: 0;
+        color: rgb(0, 0, 0);
+        margin-top: 10px;
+        margin-bottom: 0px;
+        padding: 10px;
+        z-index: 800;
+        outline: none;
+
+        .list-style {
+            list-style: none;
+            .list-style-tag {
+                border: none;
+                outline: none;
+            }
+            .list-style-span {
+                cursor: pointer;
+                outline: none;
+            }
+        }
+
+        .tag-select-input {
+            flex-grow: 1;
+            input {
+                width: 100%;
+                border-style: none;
+                outline: none;
+                background-color: inherit;
+            }
+        }
+    }
+
+    .tag-select-parent-dropdown {
+        max-width: 100%;
+        max-height: 200px;
+        overflow: scroll;
+        box-sizing: border-box;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        border: 1px solid #ccc;
+        border: none;
+        outline: none;
+        transform: translateY(98%);
+        li {
+            background-color: rgb(244, 244, 244);
+            padding: 12px;
+            border-left: 0;
+            border-right: 0;
+            border-top: 0;
+            border-bottom: 0.5px solid rgb(22, 22, 22) ;
+            outline: none;
+        }
+
+        li:hover {
+            background-color: #3498db;
+            border: none;
+            outline: none;
+        }
+
+        .disabled-li {
+            pointer-events: none;
+            cursor: none;
+        }
+    }
+
+}
